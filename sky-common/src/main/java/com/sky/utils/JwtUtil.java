@@ -6,7 +6,9 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import java.nio.charset.StandardCharsets;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class JwtUtil {
     /**
@@ -34,6 +36,8 @@ public class JwtUtil {
                 .signWith(signatureAlgorithm, secretKey.getBytes(StandardCharsets.UTF_8))
                 // 设置过期时间
                 .setExpiration(exp);
+        Map<Integer, Integer> map = new HashMap<>();
+        Set<Integer> integers = map.keySet();
 
         return builder.compact();
     }
